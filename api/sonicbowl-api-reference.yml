@@ -16,7 +16,7 @@ paths:
         required: true
         description: Id of an existing user.
     get:
-      summary: Get User Info by User ID
+      summary: SONICBOWL API REFERENCE
       tags: []
       responses:
         '200':
