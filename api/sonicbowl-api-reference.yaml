@@ -169,7 +169,7 @@ paths:
                     workspace_id: '1'
                     uuid: 49ad4d99-6640-4f27-b7cf-6acd7d7d5779
       operationId: get-podcast
-      description: Get podcast by uui
+      description: Get podcast by uuid
       parameters: []
 components:
   schemas:
