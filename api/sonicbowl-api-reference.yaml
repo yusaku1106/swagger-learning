@@ -145,6 +145,32 @@ paths:
                   dateOfBirth: '1996-08-24'
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
+  '/podcast/{podcast_uuid}':
+    parameters:
+      - schema:
+          type: string
+        name: podcast_uuid
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Podcast'
+              examples:
+                Example 1:
+                  value:
+                    id: '1'
+                    workspace_id: '1'
+                    uuid: 49ad4d99-6640-4f27-b7cf-6acd7d7d5779
+      operationId: get-podcast
+      description: Get podcast by uui
+      parameters: []
 components:
   schemas:
     User:
@@ -187,3 +213,19 @@ components:
         - lastName
         - email
         - emailVerified
+    Podcast:
+      title: Podcast
+      x-stoplight:
+        id: 62celsd11vrho
+      type: object
+      properties:
+        id:
+          type: string
+        workspace_id:
+          type: string
+        uuid:
+          type: string
+      examples:
+        - id: '1'
+          workspace_id: '1'
+          uuid: 49ad4d99-6640-4f27-b7cf-6acd7d7d5779
