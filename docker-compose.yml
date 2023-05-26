@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  editor:
+    image: swaggerapi/swagger-editor
+    ports:
+      - "8002:8080"
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8003:8080"
+    volumes:
+      - ./api/sonicbowl-api-reference.yaml:/sonicbowl-api-reference.yaml
+    environment:
+      SWAGGER_JSON: /sonicbowl-api-reference.yaml
+
+  swagger-api:
+    image: stoplight/prism:3
+    ports:
+      - "8004:4010"
+    command: mock -h 0.0.0.0 /sonicbowl-api-reference.yaml
+    volumes:
+      - ./api/sonicbowl-api-reference.yaml:/sonicbowl-api-reference.yaml
